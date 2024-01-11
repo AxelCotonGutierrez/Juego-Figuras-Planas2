@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Nunito';
+}
+
+body {
+  text-align: center;
+  color: #0c4fe1;
+  height: 100%; 
+}
+
+h1 {
+  color: #EABE3F;
+  padding: 50px;
+  font-size: 40px;
+}
+
+.container {
+  background-color: none;
+  max-width: 80%;
+  margin: auto;
+  border: 3px solid #EABE3F;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  padding: 50px 0;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Evitar desbordamiento horizontal en dispositivos móviles */
+}
+
+.container2 {
+  background-color: none;
+  max-width: 80%;
+  margin: auto;
+  border: 3px solid #EABE3F;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  padding: 50px 0;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Evitar desbordamiento horizontal en dispositivos móviles */
+}
+
+.textosuperior {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+  color:black;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+}
+.pregunta {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 35px;
+  justify-content: center;
+  align-items: center;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+}
+.pregunta2 {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 25px;
+  justify-content: center;
+  align-items: center;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+}
+.guess-button {
+  background-color: #4285f4;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  white-space: nowrap; /* Evita que el texto se divida en múltiples líneas */
+}
+/* Estilo para alinear los botones horizontalmente */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Espacio entre botones */
+}
+
+
+#result {
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: green;
+}
+
+/* Estilos adicionales para las figuras geométricas */
+#shapes {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.shape {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .triangle {
+    width: 0;
+    height: 0;
+    border-left: 60px solid transparent; /* Ajuste para el doble de tamaño */
+    border-right: 60px solid transparent; /* Ajuste para el doble de tamaño */
+    border-bottom: 120px solid; /* Ajuste para el doble de tamaño */
+  }
+  
+  .square {
+    width: 120px; /* Ajuste para el doble de tamaño */
+    height: 120px; /* Ajuste para el doble de tamaño */
+    border: 2px solid black; /* Añadir borde al cuadrado */
+
+  }
+  
+  .circle {
+    border-radius: 50%;
+    width: 120px; /* Ajuste para el doble de tamaño */
+    height: 120px; /* Ajuste para el doble de tamaño */
+    border: 2px solid black; /* Añadir borde al círculo */
+  }
+  @media (max-width: 768px) {
+    .container,
+    .container2 {
+      max-width: 90%; /* Ancho completo en dispositivos móviles */
+    }
+  
+    .pregunta {
+      font-size: 30px;
+    }
+  
+
+    .pregunta2 {
+      font-size: 25px;
+    }
+
+    .textosuperior {
+      font-size: 25px; /* Tamaño de texto superior en dispositivos móviles */
+    }
+
+   .square, .circle {
+    width: 60px; 
+    height: 60px;
+  }
+
+  .triangle {
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 60px solid;
+  }
+  .guess-button {
+    padding: 10px 20px;
+    font-size: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    white-space: nowrap; /* Evita que el texto se divida en múltiples líneas */
+  }
+  }
