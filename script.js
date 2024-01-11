@@ -1,4 +1,4 @@
-// Código existente sin modificaciones
+// Axel Cotón Gutiérrez Copyright 2023
 const shapesContainer = document.getElementById('shapes');
 const questionElement = document.getElementById('question');
 const resultElement = document.getElementById('result');
