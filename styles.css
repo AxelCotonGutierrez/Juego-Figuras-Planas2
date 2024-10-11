@@ -103,7 +103,7 @@ h1 {
 #shapes {
   display: flex;
   justify-content: space-around;
-  width: 100%;
+  width: 70%;
   margin-bottom: 20px;
 }
 
@@ -135,18 +135,18 @@ h1 {
     border: 2px solid black; /* Añadir borde al círculo */
   }
 
-  .button-megaphone-container {
-    display: flex;
-    justify-content: center; /* Centra el conjunto de elementos */
-    gap: 20px; /* Espaciado entre cada grupo de botón y megáfono */
-  }
-  
-  .button-megaphone-pair {
-    display: flex;
-    flex-direction: column; /* Coloca el botón y el megáfono en columna */
-    align-items: center; /* Centra el botón y el megáfono horizontalmente */
-    gap: 10px; /* Espaciado entre el botón y el megáfono */
-  }
+.button-megaphone-container {
+  display: flex;
+  justify-content: center; /* Centra el conjunto de elementos */
+  gap: 20px; /* Espaciado entre cada grupo de botón y megáfono */
+}
+
+.button-megaphone-pair {
+  display: flex;
+  flex-direction: column; /* Coloca el botón y el megáfono en columna */
+  align-items: center; /* Centra el botón y el megáfono horizontalmente */
+  gap: 10px; /* Espaciado entre el botón y el megáfono */
+}
 
 
 
@@ -180,12 +180,8 @@ h1 {
     border-bottom: 60px solid;
   }
   .guess-button {
-    padding: 10px 20px;
+ 
     font-size: 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-    white-space: nowrap; /* Evita que el texto se divida en múltiples líneas */
+   
   }
   }
