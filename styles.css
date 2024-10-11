@@ -137,6 +137,7 @@ h1 {
 
 .button-megaphone-container {
   display: flex;
+  width: 70%;
   justify-content: center; /* Centra el conjunto de elementos */
   gap: 20px; /* Espaciado entre cada grupo de botón y megáfono */
 }
