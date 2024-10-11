@@ -185,4 +185,7 @@ h1 {
     font-size: 12px;
    
   }
+  .button-megaphone-container {
+    gap: 10px; 
+  }
   }
