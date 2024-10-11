@@ -1,4 +1,13 @@
-// Axel Cotón Gutiérrez Copyright 2023
+// Cargar archivos de audio para las preguntas, las figuras, felicitaciones e inténtalo de nuevo
+const audioPreguntaRojo = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas2/master/audio/PreguntaRojo.mp3');
+const audioPreguntaVerde = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas2/master/audio/PreguntaVerde.mp3');
+const audioPreguntaAzul = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas2/master/audio/PreguntaAzul.mp3');
+const audioTriangulo = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas2/master/audio/Triangulo.mp3');
+const audioCuadrado = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas2/master/audio/Cuadrado.mp3');
+const audioCirculo = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas2/master/audio/Circulo.mp3');
+const felicidadesAudio = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas2/master/audio/Felicidades.mp3');
+const intentarAudio = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas2/master/audio/Intentar.mp3');
+
 const shapesContainer = document.getElementById('shapes');
 const questionElement = document.getElementById('question');
 const resultElement = document.getElementById('result');
@@ -32,21 +41,49 @@ function newQuestion() {
         }
     });
 
-    // Llamada a la nueva función para traducir nombres
     const colorQuestionTraducida = traducirColorAlEspanol(colorQuestion);
     questionElement.textContent = `¿Qué figura es de color ${colorQuestionTraducida}?`;
 }
 
+function playAudioPregunta() {
+    switch (questionElement.textContent) {
+        case '¿Qué figura es de color rojo?':
+            audioPreguntaRojo.play();
+            break;
+        case '¿Qué figura es de color verde?':
+            audioPreguntaVerde.play();
+            break;
+        case '¿Qué figura es de color azul?':
+            audioPreguntaAzul.play();
+            break;
+    }
+}
+
+function playAudioFigura(shape) {
+    switch (shape) {
+        case 'triangle':
+            audioTriangulo.play();
+            break;
+        case 'square':
+            audioCuadrado.play();
+            break;
+        case 'circle':
+            audioCirculo.play();
+            break;
+    }
+}
+
 function guess(shape) {
-    // Llamada a la nueva función para traducir nombres
     const correctAnswerTraducida = traducirFormaAlEspanol(window.correctAnswer);
 
     if (shape === window.correctAnswer) {
-        resultElement.textContent = '¡Correcto! Felicidades.';
+        resultElement.textContent = '¡Correcto! Felicitaciones.';
         resultElement.style.color = 'green';
+        felicidadesAudio.play(); // Reproduce el audio de felicitaciones
     } else {
         resultElement.textContent = `Incorrecto. La respuesta correcta era ${correctAnswerTraducida}. ¡Inténtalo de nuevo!`;
         resultElement.style.color = 'red';
+        intentarAudio.play(); // Reproduce el audio de inténtalo de nuevo
     }
 }
 
@@ -58,15 +95,12 @@ function shuffleArray(array) {
     return array;
 }
 
-// Nuevas funciones de traducción
 function traducirColorAlEspanol(colorIngles) {
     const traducciones = {
         'red': 'rojo',
         'green': 'verde',
         'blue': 'azul'
-        // Puedes agregar más traducciones según sea necesario
     };
-
     return traducciones[colorIngles] || colorIngles;
 }
 
@@ -75,9 +109,6 @@ function traducirFormaAlEspanol(formaIngles) {
         'triangle': 'triángulo',
         'square': 'cuadrado',
         'circle': 'círculo'
-        // Puedes agregar más traducciones según sea necesario
     };
-
     return traducciones[formaIngles] || formaIngles;
 }
-
