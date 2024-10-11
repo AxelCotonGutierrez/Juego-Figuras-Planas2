@@ -11,6 +11,7 @@ const intentarAudio = new Audio('https://raw.githubusercontent.com/AxelCotonGuti
 const shapesContainer = document.getElementById('shapes');
 const questionElement = document.getElementById('question');
 const resultElement = document.getElementById('result');
+let gameOver = false; // Variable para controlar el estado del juego
 
 document.getElementById('next-question').addEventListener('click', newQuestion);
 
@@ -19,6 +20,8 @@ newQuestion();
 function newQuestion() {
     resultElement.textContent = '';
     shapesContainer.innerHTML = '';
+    gameOver = false; // Reiniciar el estado del juego
+    enableGuessButtons(); // Habilitar botones de respuesta
 
     const colors = ['red', 'green', 'blue'];
     const shapes = ['triangle', 'square', 'circle'];
@@ -45,46 +48,82 @@ function newQuestion() {
     questionElement.textContent = `¿Qué figura es de color ${colorQuestionTraducida}?`;
 }
 
-function playAudioPregunta() {
-    switch (questionElement.textContent) {
-        case '¿Qué figura es de color rojo?':
-            audioPreguntaRojo.play();
-            break;
-        case '¿Qué figura es de color verde?':
-            audioPreguntaVerde.play();
-            break;
-        case '¿Qué figura es de color azul?':
-            audioPreguntaAzul.play();
-            break;
-    }
-}
-
-function playAudioFigura(shape) {
-    switch (shape) {
-        case 'triangle':
-            audioTriangulo.play();
-            break;
-        case 'square':
-            audioCuadrado.play();
-            break;
-        case 'circle':
-            audioCirculo.play();
-            break;
-    }
-}
-
 function guess(shape) {
+    if (gameOver) return; // Si el juego ha terminado, no se permiten más respuestas
+
     const correctAnswerTraducida = traducirFormaAlEspanol(window.correctAnswer);
 
     if (shape === window.correctAnswer) {
         resultElement.textContent = '¡Correcto! Felicitaciones.';
         resultElement.style.color = 'green';
-        felicidadesAudio.play(); // Reproduce el audio de felicitaciones
+        playAudio(felicidadesAudio); // Reproduce el audio de felicitaciones
+        gameOver = true; // Marcar el juego como terminado
+        incrementarContadorFirebase("Infantil/Matemáticas/Geometría/FormasBásicas", "figurasgeometricas2");
+        disableGuessButtons(); // Deshabilitar los botones de respuesta
     } else {
         resultElement.textContent = `Incorrecto. La respuesta correcta era ${correctAnswerTraducida}. ¡Inténtalo de nuevo!`;
         resultElement.style.color = 'red';
-        intentarAudio.play(); // Reproduce el audio de inténtalo de nuevo
+        playAudio(intentarAudio); // Reproduce el audio de inténtalo de nuevo
+        gameOver = true; // Marcar el juego como terminado
+        incrementarContadorFirebase("Infantil/Matemáticas/Geometría/FormasBásicas", "figurasgeometricas2");
+        disableGuessButtons(); // Deshabilitar los botones de respuesta
     }
+}
+
+function playAudioFigura(shape) {
+    let audioElement;
+    switch (shape) {
+        case 'triangle':
+            audioElement = audioTriangulo;
+            break;
+        case 'square':
+            audioElement = audioCuadrado;
+            break;
+        case 'circle':
+            audioElement = audioCirculo;
+            break;
+    }
+    playAudio(audioElement);
+}
+
+function playAudioPregunta() {
+    switch (questionElement.textContent) {
+        case '¿Qué figura es de color rojo?':
+            playAudio(audioPreguntaRojo);
+            break;
+        case '¿Qué figura es de color verde?':
+            playAudio(audioPreguntaVerde);
+            break;
+        case '¿Qué figura es de color azul?':
+            playAudio(audioPreguntaAzul);
+            break;
+    }
+}
+
+function playAudio(audioElement) {
+    if (document.getElementById('sound-control').checked) { // Verificar si el sonido está activado
+        audioElement.play().then(() => {
+            console.log('Audio reproducido correctamente');
+        }).catch(error => {
+            console.error('Error al reproducir el audio:', error);
+        });
+    }
+}
+
+// Función para deshabilitar solo los botones de respuesta
+function disableGuessButtons() {
+    const guessButtons = document.querySelectorAll(".guess-button:not(#next-question)");
+    guessButtons.forEach(button => {
+        button.disabled = true;
+    });
+}
+
+// Función para habilitar los botones de respuesta
+function enableGuessButtons() {
+    const guessButtons = document.querySelectorAll(".guess-button:not(#next-question)");
+    guessButtons.forEach(button => {
+        button.disabled = false;
+    });
 }
 
 function shuffleArray(array) {
@@ -112,3 +151,5 @@ function traducirFormaAlEspanol(formaIngles) {
     };
     return traducciones[formaIngles] || formaIngles;
 }
+// Llamar a la función para mostrar el contador al cargar la página
+mostrarContador("Infantil/Matemáticas/Geometría/FormasBásicas", "figurasgeometricas2");
