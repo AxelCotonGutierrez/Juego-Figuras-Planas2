@@ -26,19 +26,33 @@
 
 
     <div class="container2">
-        <span class="pregunta" id="question"></span></div>
+        <span class="pregunta" id="question"></span>
+        <img src="img/Megafono.png" id="megaphone-icon" alt="Reproducir pregunta" onclick="playAudioPregunta()" style="cursor: pointer; width: 30px;">
+      </div>
         <div class="container">
             <div id="shapes">
                 <!-- Aquí irán las figuras geométricas -->
             </div>
             <div class="pregunta2" id="result"></div>  <!-- Mensaje final -->
-            <div class="button-container">
-                <button class="guess-button" onclick="guess('triangle')">Triángulo</button>
-                <button class="guess-button" onclick="guess('square')">Cuadrado</button>
-                <button class="guess-button" onclick="guess('circle')">Círculo</button>
+            
+              <div class="button-megaphone-container">
+                <div class="button-megaphone-pair">
+                    <button class="guess-button" onclick="verificarRespuesta('Triángulo')">Triángulo</button>
+                    <img src="img/Megafono.png" class="audio-icon" onclick="playAudioFigura('Triángulo')" alt="Reproducir Triángulo" style="cursor: pointer; width: 30px;">
+                </div>
+            
+                <div class="button-megaphone-pair">
+                    <button class="guess-button" onclick="verificarRespuesta('Cuadrado')">Cuadrado</button>
+                    <img src="img/Megafono.png" class="audio-icon" onclick="playAudioFigura('Cuadrado')" alt="Reproducir Cuadrado" style="cursor: pointer; width: 30px;">
+                </div>
+            
+                <div class="button-megaphone-pair">
+                    <button class="guess-button" onclick="verificarRespuesta('Círculo')">Círculo</button>
+                    <img src="img/Megafono.png" class="audio-icon" onclick="playAudioFigura('Círculo')" alt="Reproducir Círculo" style="cursor: pointer; width: 30px;">
+                </div>
             </div>
             
-            <button class="guess-button" id="next-question">Siguiente Pregunta</button>
+            <button class="guess-button" id="next-question">Volver a jugar</button>
         
     </div>
 

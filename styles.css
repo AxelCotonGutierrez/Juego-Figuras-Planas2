@@ -134,6 +134,22 @@ h1 {
     height: 120px; /* Ajuste para el doble de tamaño */
     border: 2px solid black; /* Añadir borde al círculo */
   }
+
+  .button-megaphone-container {
+    display: flex;
+    justify-content: center; /* Centra el conjunto de elementos */
+    gap: 20px; /* Espaciado entre cada grupo de botón y megáfono */
+  }
+  
+  .button-megaphone-pair {
+    display: flex;
+    flex-direction: column; /* Coloca el botón y el megáfono en columna */
+    align-items: center; /* Centra el botón y el megáfono horizontalmente */
+    gap: 10px; /* Espaciado entre el botón y el megáfono */
+  }
+
+
+
   @media (max-width: 768px) {
     .container,
     .container2 {
