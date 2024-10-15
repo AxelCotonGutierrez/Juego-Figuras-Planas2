@@ -5,13 +5,18 @@
 
 Dentro del blog: https://axelcotongutierrez.github.io/learningmathematicas/
 
-Vídeo Explicativo: https://www.youtube
+Vídeo Explicativo de un código similar: https://www.youtube.com/watch?v=bofTV_my1NY
 
 Juego para Infantil
 
 Puedes probar el juego en esta url:
 
 https://axelcotongutierrez.github.io/Juego-Figuras-Planas2/
+
+Para saber como jugar solo ver la sección correspondiente en nuestro Canal de Youtube:
+
+https://www.youtube.com/watch?v=AWGxELyowVk
+
 
 ¡Bienvenido a nuestra emocionante aventura de aprendizaje sobre formas geométricas! En este juego, te divertirás descubriendo y diferenciando entre cuadrados, círculos y triángulos. Para ello se te preguntará que figura tiene un color determinado.
 
